@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-8">
             <h2 class="my-3"><?php echo $title; ?></h2>
-            <form action="/komik/save" method="POST">
+            <form action="/komik/save" method="POST" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 <div class="form-group row">
                     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
@@ -31,8 +31,14 @@
                 </div>
                 <div class="form-group row">
                     <label for="sampul" class="col-sm-2 col-form-label">Sampul</label>
-                    <div class="col-sm-10 my-3">
-                        <input type="text" class="form-control" id="sampul" name="sampul" value="<?php echo old('sampul'); ?>">
+                    <div class="col-sm-2">
+                        <img src="/img/default.jpg" class="img-thumbnail img-preview">
+                    </div>
+                    <div class="col-sm-8 my-3">
+                        <input class="form-control <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?>" name="sampul" type="file" id="sampul" onchange="previewImg()">
+                        <div class="invalid-feedback">
+                            <?php echo $validation->getError('sampul'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
