@@ -15,7 +15,9 @@ class Orang extends BaseController
     {
         $data = [
             'title' => 'Daftar Orang',
-            'orang' => $this->orangModel->findAll()
+            'orang' => $this->orangModel->paginate(6),
+            'pager' => $this->orangModel->pager
+            // 'orang' => $this->orangModel->findAll()
         ];
 
         return view('orang/index', $data);
