@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
+                    <?php $i = 1 + (6 * ($currentPage - 1)); ?>
                     <?php foreach ($orang as $k) : ?>
                         <tr>
                             <th scope="row"><?php echo $i++; ?></th>
