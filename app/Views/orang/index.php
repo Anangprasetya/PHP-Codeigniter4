@@ -26,7 +26,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <?php echo $pager->links(); ?>
+            <?php echo $pager->links('orang', 'orang_pagination'); ?>
         </div>
     </div>
 </div>
